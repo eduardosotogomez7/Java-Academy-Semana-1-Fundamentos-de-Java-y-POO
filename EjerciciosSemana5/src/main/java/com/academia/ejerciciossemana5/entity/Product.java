@@ -1,9 +1,20 @@
+// Create a JPA entity called Product for a Spring Boot application.
+// The entity should have the following fields:
+// id (Long, primary key, auto generated)
+// name (String)
+// description (String)
+// price (BigDecimal)
+// category (String)
+// inStock (boolean)
+// createdAt (LocalDateTime)
+// Include JPA annotations, a default constructor, a full constructor,
+// and getters and setters for all fields.
+
 package com.academia.ejerciciossemana5.entity;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 
 @Entity
 @Table(name = "products")
@@ -11,33 +22,36 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
     private String name;
     private String description;
     private BigDecimal price;
     private String category;
     private boolean inStock;
-    private LocalDateTime creatAt;
+    private LocalDateTime createdAt;
 
     public Product() {
-
+        // Default constructor
     }
 
-    public Product(Long id , String name, String description, BigDecimal price, String category, boolean inStock, LocalDateTime creatAt) {
+    public Product(Long id, String name, String description, BigDecimal price, String category, boolean inStock, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
         this.inStock = inStock;
-        this.creatAt = creatAt;
+        this.createdAt = createdAt;
     }
 
-    public long getId() {
+    // Getters and Setters
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,12 +71,12 @@ public class Product {
         this.description = description;
     }
 
-    public BigDecimal getPrices() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrices(BigDecimal prices) {
-        this.price = prices;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public String getCategory() {
@@ -81,13 +95,12 @@ public class Product {
         this.inStock = inStock;
     }
 
-    public LocalDateTime getCreatAt() {
-        return creatAt;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatAt(LocalDateTime creatAt) {
-        this.creatAt = creatAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
-
-
 }
+

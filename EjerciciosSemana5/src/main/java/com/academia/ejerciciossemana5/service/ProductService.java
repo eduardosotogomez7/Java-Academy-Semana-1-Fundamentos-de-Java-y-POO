@@ -1,9 +1,19 @@
 package com.academia.ejerciciossemana5.service;
 
+// Create a Spring service class called ProductService.
+// It should use ProductRepository with dependency injection.
+// Implement basic CRUD operations:
+// createProduct(Product product)
+// getAllProducts()
+// getProductById(Long id)
+// updateProduct(Product product)
+// deleteProduct(Long id)
+// Also implement findByCategory(String category).
+
 import com.academia.ejerciciossemana5.entity.Product;
 import com.academia.ejerciciossemana5.repository.ProductRepository;
+import org.springframework.stereotype.Service;
 
-import  org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,3 +50,11 @@ public class ProductService {
         return productRepository.findByCategory(category);
     }
 }
+
+
+
+
+
+
+
+
