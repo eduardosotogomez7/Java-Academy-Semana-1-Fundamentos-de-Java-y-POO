@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import jakarta.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "orders")
@@ -15,6 +17,7 @@ public class Order {
 
     private LocalDateTime orderDate;
 
+    @NotNull
     private BigDecimal total;
 
     @ManyToOne

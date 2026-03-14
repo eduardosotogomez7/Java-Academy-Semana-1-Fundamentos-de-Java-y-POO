@@ -2,6 +2,8 @@ package com.academia.ejerciciossemana5.entity;
 
 import jakarta.persistence.*;
 import java.util.List;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Customer {
@@ -12,6 +14,8 @@ public class Customer {
 
     private String name;
 
+    @Email(message = "Email must be valid")
+    @NotBlank(message = "Email is required")
     private String email;
 
     @OneToMany(mappedBy = "customer")
