@@ -1,8 +1,8 @@
 package com.academia.ejerciciossemana5.entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -13,22 +13,31 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalDateTime orderDate;
+
     private BigDecimal total;
 
-    private String customer;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> items;
 
-    public Order() {
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
     }
 
     public BigDecimal getTotal() {
@@ -39,12 +48,16 @@ public class Order {
         this.total = total;
     }
 
-    public List<OrderItem> getItems() {
-        return items;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public String getCustomer() {
-        return customer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
     }
 
     public void setItems(List<OrderItem> items) {
